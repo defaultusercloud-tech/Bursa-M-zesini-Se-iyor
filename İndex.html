@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bursa Müzesini Seçiyor🐊🐊</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <h3>Tema değiştirme</h3> 
+     <nav class="navbar">
+        <a href="https://metasteps.com/viewer/3b9724b9-ec65-4c47-82d8-eb801ba367d0">Dijital Müzeye git</a>
+        <button id="theme-toggle" class="nav-btn">Temayı Değiştir</button>
+        <a href="http://127.0.0.1:5500/Kul%C3%BCp%20Amac%C4%B1.html">Kulüp Amacı</a>
+        <a href="http://127.0.0.1:5500/Tam%20Sayfa.html">Sayfanın Tam Hali</a>
+    </nav>
+
+
+    <h1>Bursa Müzesini Seçiyor🐊🐊</h1>
+
+    <script type="module">
+        
+         // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // 2. Senin Firebase yapılandırma bilgilerin
+  const firebaseConfig = {
+    apiKey: "AIzaSyDx2_M0dx63c_THabQPQPv-Vf55D5OPB6Q",
+    authDomain: "bursa-muzesini-seciyor-89c45.firebaseapp.com",
+    projectId: "bursa-muzesini-seciyor-89c45",
+    storageBucket: "bursa-muzesini-seciyor-89c45.firebasestorage.app",
+    messagingSenderId: "1066135509944",
+    appId: "1:1066135509944:web:831d1cbe994e60958f8d4d",
+    measurementId: "G-TCFMT1290C"
+  };
+
+  // 3. Firebase ve Veritabanı (Firestore) bağlantısını başlatıyoruz
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. Form gönderme işlemini yakalıyoruz
+  const form = document.getElementById('form');
+
+  form.onsubmit = async (e) => {
+    e.preventDefault(); // Sayfanın yenilenmesini engeller
+
+    // HTML formundaki verileri değişkenlere alıyoruz
+    const ad = document.getElementById('name').value;
+    const rol = document.getElementById('role').value;
+    const yorum = document.getElementById('comment').value;
+
+    // İşaretlenmiş olan tüm müzeleri bulup bir listeye ekliyoruz
+    const secilenMuzeler = [];
+    document.querySelectorAll('input[name="inp"]:checked').forEach((kutu) => {
+        secilenMuzeler.push(kutu.parentElement.textContent.trim());
+    });
+
+    try {
+      // Firebase'deki "oylar" koleksiyonuna yeni bir belge ekliyoruz
+      await addDoc(collection(db, "oylar"), {
+        kullanici_adi: ad,
+        meslek_rol: rol,
+        secilen_muzeler: secilenMuzeler,
+        oneri_not: yorum,
+        oy: "verildi", // Senin panelde oluşturduğun "oy" alanını buraya bağladık
+        kayit_tarihi: new Date()
+      });
+      
+      alert("🐊 Harika! Oy un başarıyla kaydedildi.");
+      form.reset(); // Formu bir sonraki kullanım için temizler
+    } catch (hata) {
+      console.error("Bir hata oluştu: ", hata);
+      alert("Hata: " + hata.message);
+    }
+  };
+</script>
+   
+<div class="liste">
+    <img src="Şehrim ve Müzem 1.jpeg">
+
+    <strong><h1>Bursa Müzesini Seçiyor🗳️🗳️</h1></strong>
+
+    <h1></h1>
+    <h2>ŞEHİR VE MEDENİYET KULÜBÜMÜZ HAKKINDA
+
+Şehir ve Medeniyet Kulübü olarak 18 öğrencimiz ve Özel 3 Mart Azizoğlu Ortaokulu Sosyal Bilgiler Öğretmenleri Can CANBOLAT ile Göktan AKDAĞ koordinatörlüğünde kadim şehir Bursa’nın tarihi, kültürel ve doğal zenginliklerini keşfetmeyi amaçlıyoruz. Kulübümüzde şehrimizin tarihsel gelişimini Tarih Öncesi Devirler’den başlayarak sırasıyla Antik Roma, Bizans, Selçuklu, Osmanlı ve Cumhuriyet’in erken dönemlerine kadar incelemekteyiz.“Bursa ve Atatürk”, “Memleketim Bursa”, “Bursa’nın Doğal ve Beşeri Güzellikleri”, “Şehrim ve Müzem” gibi temalar etrafında şehrimizin geçmişten günümüze uzanan mirasını tanıma ve yaşatma çabası içindeyiz. Bu kapsamda; Aktopraklık Arkeopark Açık Hava Müzesi, Bursa Arkeoloji Müzesi, Muradiye Külliyesi, Osman Gazi ve Orhan Gazi Türbeleri, Ulu Cami, Yeşil Külliyesi, Uludağ gibi doğal ve tarihi mekanlara geziler düzenledik.
+Şehir ve Medeniyet Kulübü olarak amacımız; öğrencilerimizin yaşadıkları şehri daha yakından tanımalarını sağlamak, tarih bilinci ve kültürel farkındalık kazandırmak, akademik bilgilerin yanı sıra aynı zamanda estetik ve çevre duyarlılığı geliştirmektir.
+
+</h2>
+
+    <h1></h1>
+    <img src="Havuzlu.jpeg" alt="">
+    <h1>“KAPLICA VE SAĞLIK MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Sinema.jpeg" alt="">
+    <h1>“SİNEMA MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Mimar.jpeg" alt="">
+    <h1>“MİMARLIK TARİHİ MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Gasonami.jpeg" alt="">
+    <h1>“GASTRONOMİ MÜZESİ”</h1>
+   
+    <h1></h1>
+    <img src="Doğal Taşlar Müzesi.jpeg" alt="">
+    <h1>“DOĞAL TAŞLAR MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Uludağ.jpeg" alt="">
+    <h1>“ULUDAĞ MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Türbe.jpeg" alt="">
+    <h1>“ULUCAMİ MÜZESİ”</h1>
+
+   <h1></h1>
+    <img src="Sanayi Ticaret.jpeg" alt="">
+    <h1>“SANAYİ VE TİCARET TARİHİ MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Cami.jpeg" alt="">
+    <h1>“OSMANLI VE BURSA MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Kırtasiye Müzesi.jpeg" alt="">
+    <h1>“KIRTASIYE MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Doğa.jpeg" alt="">
+    <h1>“DOĞA MÜZESİ”</h1>
+   
+    <h1></h1>
+    <img src="Bursaspor.jpeg" alt="">
+    <h1>“BURSASPOR MÜZESİ”</h1>
+    
+    <h1></h1>
+    <img src="Bursa Sanat AVM.jpeg" alt="">
+    <h1>“BURSA Modern Sanatlar Müzesi”</h1>
+
+    <h1></h1>
+    <img src="Moda.jpeg" alt="">
+    <h1>“MODA MÜZESİ”</h1>
+
+    </div>
+    <h1></h1>
+
+<html>
+<head>
+</head>
+<body>
+
+<html>
+<head>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <h1>Oy Verme Bölümü</h1>
+    <!-- Create Form -->
+    <form id="form">
+        <!-- Details -->
+        <div class="form-control">
+            <label for="Adınız" id="label-name">Adınız</label>
+            <input type="text" id="name" placeholder="Adınızı giriniz" />
+            <small>(Belirtmeyebilirsiniz)</small>
+        </div>
+        <div class="form-control">
+            <label for="role" id="label-role">Hangi seçenek sizi en iyi tanımlar?</label>
+            <select name="role" id="role">
+                <option value="student">Öğrenci</option>
+                <option value="intern">Eğitmen</option>
+                <option value="Developer">Geliştirici</option>
+                <option value="other">Diğer</option>
+            </select>
+        </div>
+        <div class="form-control">
+            <label>Bu siteyi başka birine önerir misin?</label>
+            <label for="recommed-1">
+                <input type="radio" id="recommed-1" name="recommed">Evet
+            </label>
+            <label for="recommed-2">
+                <input type="radio" id="recommed-2" name="recommed">Hayır
+            </label>
+            <label for="recommed-3">
+                <input type="radio" id="recommed-3" name="recommed">Belki
+            </label>
+        </div>
+        <div class="form-control">
+            <label>Hangi müzeleri beğendiniz?</label>
+                <small>(Birden fazla seçebilirsiniz)</small>
+            </label>
+            <label for="inp-1">
+                <input type="checkbox" name="inp">Kaplıca ve Sağlık Müzesi
+            </label>
+            <label for="inp-2">
+                <input type="checkbox" name="inp">Sinema Müzesi
+            </label>
+            <label for="inp-3">
+                <input type="checkbox" name="inp">Mimarlık Tarihi Müzesi
+            </label>
+            <label for="inp-4">
+                <input type="checkbox" name="inp">Gastronomi Müzesi
+            </label>
+            <label for="inp-5">
+                <input type="checkbox" name="inp">Doğal Taşlar Müzesi
+            </label>
+            <label for="inp-6">
+                <input type="checkbox" name="inp">ULUDAĞ Müzesi
+            </label>
+            <label for="inp-7">
+                <input type="checkbox" name="inp">ULUCAMİ Müzesi
+            </label>
+            <label for="inp-8">
+                <input type="checkbox" name="inp">SANAYİ VE TİCARET TARİHİ Müzesi
+            </label>
+            <label for="inp-9">
+                <input type="checkbox" name="inp">OSMANLI VE BURSA Müzesi
+            </label>
+
+            <label for="inp-10">
+                <input type="checkbox" name="inp">KIRTASİYE Müzesi 
+            </label>
+            <label for="inp-11">
+                <input type="checkbox" name="inp">DOĞA Müzesi
+            </label>
+
+            <label for="inp-12">
+                <input type="checkbox" name="inp">BURSASPOR Müzesi
+            </label>
+
+            <label for="inp-13">
+                <input type="checkbox" name="inp">BURSA Modern Sanatlar Müzesi
+            </label>
+
+            <label for="inp-14">
+                <input type="checkbox" name="inp">MODA Müzesi
+            </label>
+
+            
+        </div>
+        <div class="form-control">
+            <label for="comment">Önerileriniz ve istek bölümü</label>
+            <textarea name="comment" id="comment" placeholder="Önerileriniz varsa yazabilirsiniz :)"></textarea>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" value="gönder">Gönder gitsin</button>
+    </form>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
