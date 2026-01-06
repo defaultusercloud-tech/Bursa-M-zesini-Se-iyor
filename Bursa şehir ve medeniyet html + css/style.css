@@ -1,0 +1,175 @@
+/* Styling the Body element */
+body {
+    background-color: #fff;
+    font-family: Verdana;
+    text-align: center;
+}
+/* Styling the Form */
+form {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+/* Styling .form-control */
+.form-control {
+    text-align: left;
+    margin-bottom: 25px;
+}
+/* Styling .form-control label */
+.form-control label {
+    display: block;
+    margin-bottom: 10px;
+}
+/* Styling .form-control input, select, textarea */
+.form-control input,
+.form-control select,
+.form-control textarea {
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 95%;
+}
+/* Styling Radio button and Checkbox */
+.form-control input[type="radio"],
+.form-control input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+}
+/* Styling Button */
+button {
+    background-color: #05c46b;
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 21px;
+    display: block;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.liste img {
+  display: block;
+  width: 1px;
+  height: 7px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 15px; /* Köşeleri büker */
+}
+.liste {
+  text-align: center; /* Her şeyi ortalar */
+}
+
+.liste img {
+  display: block;
+  margin: 10px auto;  /* Resmi ortalar ve boşluk bırakır */
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.liste {
+  text-align: center;
+}
+.liste img {
+  display: block;
+  margin: 20px auto;  /* Araları biraz daha açtık */
+  width: 800px;       /* Genişlik (Büyütüldü) */
+  height: 500px;      /* Yükseklik (Büyütüldü) */
+  object-fit: cover;
+  border-radius: 20px; /* Büyük resimde biraz daha fazla büküm iyi durur */
+}
+
+.liste p {
+  font-size: 18px;    /* Yazıyı da resme göre biraz büyüttük */
+  margin-bottom: 40px; /* Diğer resme geçmeden önce boşluk */
+}
+
+/* Renk Değişkenleri */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --nav-bg: #f8f8f8; /* Açık tema bar rengi */
+    --btn-bg: #333333;
+    --btn-text: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --nav-bg: #1a1a1a; /* Koyu tema bar rengi */
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Stilleri */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between; /* Logo solda, buton sağda */
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* İçerik Alanı (Navbar yüksekliği kadar yukarıdan boşluk veriyoruz) */
+.content {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* Buton Stili */
+.nav-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    
+    /* İkisinin de boyutu artık tamamen aynı */
+    width: 140px;        
+    height: 40px;       
+    
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.nav-btn:hover {
+    filter: brightness(1.2);
+}
+
+.content {
+    margin-top: 100px;
+    text-align: center;
+}
